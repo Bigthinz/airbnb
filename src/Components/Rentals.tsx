@@ -6,7 +6,7 @@ import Nav from './Nav'
 
 
 
-let data = rentals
+const data = rentals
 
 
 
