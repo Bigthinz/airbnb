@@ -3,7 +3,8 @@ import Navbar from './Navbar'
 import RoomGrid from './RoomGrid'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { ArrowUpTrayIcon} from '@heroicons/react/24/solid'
-import { HeartIcon ,ChatBubbleOvalLeftIcon} from '@heroicons/react/24/outline'
+import { HeartIcon ,ChatBubbleOvalLeftIcon, ChevronRightIcon} from '@heroicons/react/24/outline'
+import Calender from './Calender'
 
 
 
@@ -41,9 +42,9 @@ const SingleRental = () => {
             {/* end of hero grid section */}
 
             <section>
-                <div className='grid  grid-cols-3 mt-32'>
-                    <section className=' col-span-2 grid-rows-3 divide-y '> 
-                        <div className='flex justify-between  py-8'>
+                <div className='grid gap-x-16  grid-cols-3 mt-32'>
+                    <section className=' col-span-2  divide-y '> 
+                        <div className='flex justify-between  pb-8'>
                             <div className=''>
                                 <h2 className='text-2xl font-medium mb-2'>Cave hosted by Christophe</h2>
                                 <ul className='flex  space-x-2 '>
@@ -81,8 +82,52 @@ const SingleRental = () => {
                             <p className='mb-6'>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
                             <a href="/" className='underline font-medium'>Learn more</a>
                         </div>
+                        <div className='py-8 space-y-4'>
+                            <p>Some info is shown in its original language. <span className='font-medium underline'>Translate</span></p>
+                            <p>Venez passer un moment relaxant dans notre Love Cave située en plein centre de Valence en couple ou entre amis. </p>
+                            <p>Vous aurez accès à une place de parking souterrain privative et pourrez profiter de ce fabuleux logement de charme atypique equipé de sa balnéo.</p>
+                            <div className='inline-flex space-x-2'>
+                                <a className='font-medium underline ' href="/">Show more</a>
+                                <ChevronRightIcon className='w-5 h-5'/>
+                            </div>
+                            
+                        </div>
+                        <div className='py-8'>
+                            <h2 className='font-medium text-2xl mb-8'>Where you&apos;ll sleep</h2>
+                            <div className='border-2 rounded-xl w-[20rem] py-6 px-5 space-y-2'>
+                                <img className='w-8 h-8 mb-5' src="https://a0.muscache.com/pictures/eb7ba4c0-ea38-4cbb-9db6-bdcc8baad585.jpg" alt="" />
+                                <h2 className='font-medium'>Common space</h2>
+                                <p>1 sofa bed</p>
+                            </div>
+
+                        </div>
+                        <div className='py-8 space-y-2'>
+                            <h2 className='text-2xl font-medium '>6 nights in Valence</h2>
+                            <p className=''>Dec 11, 2022 - Dec 17, 2022</p>
+                            <div className='mb-12 h-6'></div>
+                            <Calender/>
+
+                        </div>
+                        <div className='py-8' > 
+                        </div>
                     </section>
-                    <section>2</section>
+                    <section>
+                       <div className='shadow-md h-[20rem] py-8 px-4'>
+                            <p><span className='text-xl font-medium'>$234 </span>night </p>
+                            <div className='border-2 rounded-md'>
+                                <div className='flex'>
+                                    <div className='p-1'>
+                                        <label className='block' htmlFor="checkin">check in</label>
+                                        <input type="text"  name='checkin'/>
+                                    </div>
+                                    <div className='p-1'>
+                                        <label className='block' htmlFor="checkout">check out</label>
+                                        <input type="text"  name='checkin'/>
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+                    </section>
                 </div>
             </section>
 
