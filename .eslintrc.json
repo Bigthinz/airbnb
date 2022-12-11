@@ -12,6 +12,14 @@
         "react/react-in-jsx-scope":0,
         "no-unused-vars": "off"
     },
+    "overrides": [
+        {
+          "files": ["*.ts", "*.tsx"],
+          "rules": {
+            "no-undef": "off"
+          }
+        }
+      ],
    
     
      "plugins":["react","import", "jsx-a11y"],

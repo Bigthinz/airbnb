@@ -118,11 +118,11 @@ const SingleRental = () => {
                                 <div className='flex'>
                                     <div className='p-1'>
                                         <label className='block' htmlFor="checkin">check in</label>
-                                        <input type="text"  name='checkin'/>
+                                        <input type="text"  name='checkin' placeholder='MM/DD/YYYY'/>
                                     </div>
                                     <div className='p-1'>
                                         <label className='block' htmlFor="checkout">check out</label>
-                                        <input type="text"  name='checkin'/>
+                                        <input type="text"  name='checkin' placeholder='MM/DD/YYYY'/>
                                     </div>
                                 </div>
                             </div>
