@@ -7,7 +7,6 @@ import image4 from '../Assets/gal-4.jpeg'
 import image5 from '../Assets/gal-5.jpeg'
 
 
-
 const RoomGrid = () => {
   return (
     <div className='grid grid-cols-4 grid-rows-[200px] auto-cols-auto gap-4  mt-8 overflow-hidden rounded-xl' >

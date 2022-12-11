@@ -14,6 +14,9 @@ module.exports = {
       fontFamily: {
         sans: ['Poppins', ...defaultTheme.fontFamily.sans],
     },
+    backgroundImage:{
+      'button-slide': "radial-gradient(circle at center, #FF385C 0%, #E61E4D 27.5%, #E31C5F 40%, #D70466 57.5%, #BD1E59 75%, #BD1E59 100% )"
+    },
     width:{
       '4xl': '1240px',
     },

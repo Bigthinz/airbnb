@@ -41,7 +41,7 @@ const Navbar = () => {
                     <span className='w-[1px]  bg-gray-200'></span>
                     <button onClick={(isBig)=> setIsBig((isBig)=> !isBig)} className='capitalize flex items-center'>Add guest
                     
-                    <svg   xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#fff" className="w-9 h-9 bg-red-400 p-2 rounded-full mx-2">
+                    <svg   xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#fff" className="w-9 h-9 bg-[#ff385c] p-2 rounded-full mx-2">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
 
@@ -54,7 +54,7 @@ const Navbar = () => {
             <div className='relative'>
                 <div>
                     {/* <button>login</button> */}
-                    <div onClick={()=> setShowLoginModal(!showLoginModal)} className='hover:drop-shadow-md bg-white rounded-full ease-in duration-200'>
+                    <button onClick={()=> setShowLoginModal(!showLoginModal)} className='hover:drop-shadow-md bg-white rounded-full ease-in duration-200'>
                     <div className='flex shadow-sm  p-3 px-5 rounded-full cursor-pointer border border-off-grey'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#717171" stroke='#717171' className="w-7 h-7">
                         <path fillRule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clipRule="evenodd" />
@@ -64,7 +64,7 @@ const Navbar = () => {
                     </svg>
 
                     </div>
-                    </div>
+                    </button>
 
                     
                 </div>
