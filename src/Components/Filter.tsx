@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import sunset from '../Assets/beach.png'
 
 
 import { filters } from '../Utils/data'
 
 
+
 const Filter = () => {
   return (
-    <div className='flex  h-32 justify-center items-center  m-auto  '>
-    <div className='flex w-5/6 relative m-auto text-center '>
+    <div className='flex w-5/6 h-32 justify-between items-center  m-auto  '>
+    <div className=' flex flex-1 relative m-auto text-center '>
 
     {
         filters.map(filter => {
