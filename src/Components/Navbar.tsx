@@ -7,8 +7,17 @@ import { motion } from 'framer-motion'
 const Navbar = () => {
     const [showLoginModal, setShowLoginModal] = useState(false)
     const [isBig, setIsBig] = useState(false)
+    const [search, setSearch] = useState(false)
 
 
+    const handleSearchToggle = (e: React.FormEvent<EventTarget>) => {
+        e.preventDefault()
+        setSearch(!search)
+    }
+
+    const handleSearch =(e: React.FormEvent<EventTarget> )=>{
+        e.preventDefault()
+    }
     
   return (
     <motion.div
@@ -33,21 +42,43 @@ const Navbar = () => {
            
 
             {/* filter */}
-            <div>
+            <form action="" onSubmit={handleSearch}>
                 <div className='group flex justify-between  w-[28rem] flex-1 shadow-sm hover:drop-shadow-md bg-white ease-in duration-200 p-3 px-5 rounded-full border border-off-grey'>
-                    <button className='capitalize font-medium'>Anywhere</button>
+                    
+                    { search ?(
+                        <div className='flex-1'>
+                            <input className='w-full h-full py-2 px-1 outline-none' type="text"  placeholder='search for rooms' />
+                        </div>
+                    ) : (
+                        <>
+                         <button className='capitalize font-medium'>Anywhere</button>
+                        <span className='w-[1px] bg-gray-200'></span>
+                        <button className='capitalize font-medium'>Any week</button>
+                        <span className='w-[1px]  bg-gray-200'></span> 
+                    </>
+                    ) 
+                    }
+                    {/* <button className='capitalize font-medium'>Anywhere</button>
                     <span className='w-[1px] bg-gray-200'></span>
                     <button className='capitalize font-medium'>Any week</button>
-                    <span className='w-[1px]  bg-gray-200'></span>
-                    <button onClick={(isBig)=> setIsBig((isBig)=> !isBig)} className='capitalize flex items-center'>Add guest
+                    <span className='w-[1px]  bg-gray-200'></span> */}
+
+               
+
+                    <button onClick={(isBig)=> setIsBig((isBig)=> !isBig)} className='capitalize flex items-center'>{search ? ''  : 'Add guest'} 
                     
-                    <svg   xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#fff" className="w-9 h-9 bg-[#ff385c] p-2 rounded-full mx-2">
+                    <svg  onClick={handleSearchToggle}  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#fff" className="w-9 h-9 bg-[#ff385c] p-2 rounded-full mx-2">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
 
                     </button>
+
+                
+                
                 </div>
-            </div>
+
+                
+            </form>
 
 
             {/* logins */}

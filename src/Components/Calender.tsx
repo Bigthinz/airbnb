@@ -33,6 +33,8 @@ const Calender = () => {
         moveRangeOnFirstSelection={false}
         ranges={[selectionRange]}
         rangeColors={['#fd5b61']}
+        months={2}
+        direction="horizontal"
 
 />
     </div>

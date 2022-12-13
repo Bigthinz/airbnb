@@ -7,8 +7,8 @@ interface Image {
 
 const ImageWrap = ({image}:Image) => {
   return (
-    <div className='max-w-none'>
-        <img src={image} alt='' className='w-full cover'/>
+    <div className='max-w-none h-full relative'>
+        <img src={image} alt='' className='w-full h-full object-cover '/>
     </div>
   )
 }
