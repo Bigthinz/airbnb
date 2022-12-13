@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState , useRef, useEffect } from 'react'
 import LoginModal from './LoginModal'
 import { motion } from 'framer-motion'
 // import logo from '../Assets/logo.png';
 
 
 const Navbar = () => {
+    const menuRef = useRef<HTMLDivElement>()
+
     const [showLoginModal, setShowLoginModal] = useState(false)
     const [isBig, setIsBig] = useState(false)
     const [search, setSearch] = useState(false)
@@ -18,6 +20,23 @@ const Navbar = () => {
     const handleSearch =(e: React.FormEvent<EventTarget> )=>{
         e.preventDefault()
     }
+
+ 
+
+    useEffect(() => {
+        const handleClickOutside = (event: any) => {
+            if (!menuRef.current.contains(event.target)) {
+                setShowLoginModal(false)
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    });
+
+
+
     
   return (
     <motion.div
@@ -82,10 +101,10 @@ const Navbar = () => {
 
 
             {/* logins */}
-            <div className='relative'>
-                <div>
+            <div className='relative' ref={menuRef}>
+                <div >
                     {/* <button>login</button> */}
-                    <button onClick={()=> setShowLoginModal(!showLoginModal)} className='hover:drop-shadow-md bg-white rounded-full ease-in duration-200'>
+                    <button onClick={()=> setShowLoginModal(!showLoginModal)}  className='hover:drop-shadow-md bg-white rounded-full ease-in duration-200'>
                     <div className='flex shadow-sm  p-3 px-5 rounded-full cursor-pointer border border-off-grey'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#717171" stroke='#717171' className="w-7 h-7">
                         <path fillRule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clipRule="evenodd" />

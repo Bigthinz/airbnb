@@ -1,4 +1,4 @@
-import React,{ useState , FocusEvent } from 'react'
+import React,{ useState ,useRef, useEffect } from 'react'
 import Calender from './Calender'
 import CalenderModal from './CalenderModal'
 
@@ -9,22 +9,46 @@ import CalenderModal from './CalenderModal'
 // }
 
 const Reserve = () => {
-
+    const calenderRef = useRef<HTMLDivElement>()
     const [toggleCalender, setToggleCalender] = useState(false)
 
-    const handleFocus = (e:FocusEvent) => {
+
+    const handleFocus = () => {
+        
         setToggleCalender(!toggleCalender)
     }
+
+
+    useEffect(() => {
+        const handleClickOutside = (event:any) => {
+            if (calenderRef && !calenderRef.current.contains(event.target)) {
+                console.log('clicked outside')
+                setToggleCalender(false)
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [calenderRef]);
+
 
    
   return (
     <>
-    <div className='shadow-md  py-8 px-4 border rounded-xl sticky top-32 '>
+    <div className='shadow-md bg-white  py-8 px-4 border rounded-xl sticky top-32 '>
                             <p className='space-x-1'><span className='text-2xl font-medium text-gray-400 line-through'>$305</span><span className='text-2xl font-medium '>$234 </span>night </p>
                             <div>
-                                <div className='relative border rounded-md mt-4 divide-y'>
-                                    <div className='flex  divide-x ' onFocus={handleFocus}   >
-                                        <div className='px-3 py-3'>
+                                <div className='relative  border rounded-md mt-4 divide-y' ref={calenderRef}>
+                                    {/* part of eslint is enforcing accesibility ruls that causing error when using onclick on non button componentst|
+                                    two resolution tell to ignore using the presentation role attribute/tag */}
+
+
+                                    {/* <div className='flex  divide-x ' role="presentation"  onClick={handleFocus} > */}
+                                    <div className='flex  divide-x cursor-pointer' role="presentation" onClick={handleFocus}  >
+                                        
+                                    
+                                        <div className='px-3 py-3 cursor-pointer'>
                                             <label className='block uppercase font-medium text-[0.8rem]' htmlFor="checkin">check-n</label>
                                             <input
                                              
@@ -33,7 +57,7 @@ const Reserve = () => {
                                              name='checkin' 
                                              placeholder='MM/DD/YYYY'/>
                                         </div>
-                                        <div className='px-3 py-3 '>
+                                        <div className='px-3 py-3  cursor-pointer'>
                                             <label className='block uppercase font-medium text-[0.8rem]' htmlFor="checkout">checkout</label>
                                             <input className='w-full outline-none' type="text"  name='checkin' placeholder='MM/DD/YYYY'/>
                                         </div>
